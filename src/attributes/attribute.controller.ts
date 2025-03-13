@@ -10,6 +10,10 @@ export class AttributeController {
     async getProductAttribute() {
         return this.attributeService.findAttributeAll();
     }
+    @Post('getAttribute')
+    async getProductAttributeByArrayObject(@Body() tTSPDto: any) {
+        return this.attributeService.getByArrayObject(tTSPDto);
+    }
     
     @Post()
     async addProductAttribute(@Body() attributeDto: AttributeDto ) {
@@ -29,9 +33,5 @@ export class AttributeController {
     @Delete(':id')
     async deleteProductAttributeById(@Param('id') id: string) {
         return this.attributeService.deleteAttribute(id);
-    }
-    @Post('getAttribute')
-    async getProductAttributeByArrayObject(@Body() tTSPDto: any) {
-        return this.attributeService.getByArrayObject(tTSPDto);
     }
 }
