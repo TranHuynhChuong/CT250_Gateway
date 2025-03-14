@@ -6,9 +6,6 @@ import { userDto } from "./user.dto";
 export class CustomerService {
     constructor(private readonly redisMessageBrokerService: RedisMessageBrokerService ){}
 
-    async findAllUser() {
-        return await this.redisMessageBrokerService.requestResponse('get_user', {});
-    }
     async findUserById(customerId: string) {
         return await this.redisMessageBrokerService.requestResponse('get_user_by_id', {id: customerId});
     }

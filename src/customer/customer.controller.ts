@@ -13,10 +13,6 @@ import { CustomerService } from './customer.service';
 @Controller('customers')
 export class CustomerController {
   constructor(private readonly customerService: CustomerService) {}
-  @Get()
-  getAllUsers() {
-    return this.customerService.findAllUser();
-  }
 
   @Get(':id')
   getUserById(@Param('id') id: string) {

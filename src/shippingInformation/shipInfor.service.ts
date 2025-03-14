@@ -8,27 +8,27 @@ export class ShippingInformationService {
     private readonly redisMessageBrokerService: RedisMessageBrokerService,
   ) {}
 
-  deleteShipInfor(id: string) {
-    this.redisMessageBrokerService.requestResponse(
+  async deleteShipInfor(id: string) {
+    return await this.redisMessageBrokerService.requestResponse(
       'delete_shipping_information',
-      { id },
+      id ,
     );
   }
-  updateShipInfor(ShippingInformation: ShippingInformationDto, id: string) {
-    this.redisMessageBrokerService.requestResponse(
+  async updateShipInfor(ShippingInformation: ShippingInformationDto, id: string) {
+    return await this.redisMessageBrokerService.requestResponse(
       'update_shipping_information',
       { ShippingInformation, id },
     );
   }
-  findShipInforById(id: string) {
-    this.redisMessageBrokerService.requestResponse('get_shipping_information', {
+  async findShipInforById(id: string) {
+    return await this.redisMessageBrokerService.requestResponse('get_shipping_information', {
       id,
     });
   }
-  createShipInfor(ShippingInformation: ShippingInformationDto) {
-    this.redisMessageBrokerService.requestResponse(
+  async createShipInfor(ShippingInformation: ShippingInformationDto) {
+    return await this.redisMessageBrokerService.requestResponse(
       'create_shipping_information',
-      { ShippingInformation },
+       ShippingInformation ,
     );
   }
 }

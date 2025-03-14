@@ -11,6 +11,14 @@ export class ShoppingCartController {
     getAllShoppingCart() {
       return this.shoppingCartService.findAllShoppingCart();
     }
+    @Get('userid/:id')
+    getShoppingCartsByUserId(@Param('id') userId: string){
+      return this.shoppingCartService.findShoppingCartsByUserId(userId);
+    }
+    @Delete('userid/:id')
+    deleteAllShoppingCartsByUserId(@Param('id') userId: string){
+      return this.shoppingCartService.deleteAllShoppingCartsByUserId(userId);
+    }
     @Get(':id')
     getShoppingCartById(@Param('id') id: string) {
       return this.shoppingCartService.findShoppingCartById(id);
@@ -18,6 +26,7 @@ export class ShoppingCartController {
   
     @Post()
     createShoppingCart(@Body() shoppingCartDto: ShoppingCartDto) {
+      
       return this.shoppingCartService.createShoppingCart(shoppingCartDto);
     }
   

@@ -9,7 +9,6 @@ export class AddressesService {
   ) {}
 
   async findAllAddress() {
-    console.log('***********')
     return await this.redisMessageBrokerService.requestResponse('get_all_addresses', {});
   }
   async deleteAddress(id: string) {
@@ -22,16 +21,14 @@ export class AddressesService {
     });
   }
   async createAddress(address: AddressDto) {
-    return await this.redisMessageBrokerService.requestResponse('create_address', {
-      address,
-    });
+    return await this.redisMessageBrokerService.requestResponse('create_address',
+      address);
   }
   async findAddressByUserId(userId: string) {
-    return await this.redisMessageBrokerService.requestResponse('get_user_addresses', {
-      userId,
-    });
+    return await this.redisMessageBrokerService.requestResponse('get_user_addresses', 
+      userId);
   }
   async findAddressById(id: string) {
-    return await this.redisMessageBrokerService.requestResponse('get_address_by_id', { id });
+    return await this.redisMessageBrokerService.requestResponse('get_address_by_id', id );
   }
 }

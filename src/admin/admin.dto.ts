@@ -1,6 +1,6 @@
 export class AdminDto {
-    emailNS: string;
-    sdtNS: string;
-    diaChiNS: string;
-    gioiThieuNS: string;
+    email_NS: string;
+    sdt_NS: string;
+    diaChi_NS: string;
+    gioiThieu_NS: string;
 }
